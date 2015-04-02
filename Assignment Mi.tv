@@ -1,0 +1,64 @@
+package selenium;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Assignment2 {
+
+	public static void main(String[] args) {
+	       String j = "Brasil";
+	      
+	              WebDriver ff = new FirefoxDriver();
+	              ff.navigate().to("http://mi.tv");
+	              ff.manage().window().maximize();
+	              ff.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	              ff.findElement(By.linkText(j)).click();
+	              ff.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	              ff.findElement(By.id("login")).click();
+	              ff.findElement(By.className("register-link")).click();
+	              ff.findElement(By.className("link-login")).click();
+	              ff.findElement(By.name("email")).clear();
+	              ff.findElement(By.name("email")).sendKeys("sompallipravallika@gmail.com");
+	              ff.findElement(By.name("password")).clear();
+	              ff.findElement(By.name("password")).sendKeys("Manjunath19");
+	              ff.findElement(By.xpath("//*[@id='app-main-region']//button")).click();
+	              ff.findElement(By.xpath("//*[@id='app-main-region']//button")).click();
+	              ff.findElement(By.xpath("//*[@id='app-profile-show-tabs-region']/div/ul/li[2]/a")).click();
+	             
+	              //List<WebElement> totalChannels = ff.findElements(By.cssSelector(".like"));
+	              //for(WebElement temp:totalChannels){
+	            	  
+	                   //  System.out.println(temp.getText());
+	                    
+	              //}
+	             ff.findElement(By.xpath(".//*[@id='app-my-channels-list-content-region']/section/article[1]/div[2]/div[1]/a/span")).click();
+	             ff.findElement(By.xpath(".//*[@id='app-my-channels-list-content-region']/section/article[2]/div[2]/div[1]/a/span")).click();
+	             //ff.findElement(By.xpath(".//*[@id='app-my-channels-list-content-region']/section/article[2]/div[2]/div[1]/a/span")).click();
+	             
+	              
+	              ff.findElement(By.xpath(".//*[@id='app-navigation-region']/nav/div[1]/a[1]/img")).click();
+	              if(ff.getPageSource().contains("Rede Globo (Rede)"))
+	              {
+	            	  System.out.println("program deleted");
+	              }
+	            	  else{
+	            		  System.out.println("program added");
+	            	  }
+	              
+	              if(ff.getPageSource().contains("Record"))
+	              {
+	            	  System.out.println("program added");
+	            	  
+	              }
+	              else{
+	            	  System.out.println("program deleted");
+	              }
+	              
+	}
+}
+	
