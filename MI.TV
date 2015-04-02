@@ -1,0 +1,36 @@
+package selenium;
+
+import java.util.HashSet;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Assignment1 {
+
+	
+	public static void main(String[] args) {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://mi.tv/br/programacao");
+		List<WebElement> links = driver.findElements(By.tagName("a")); 
+		System.out.println(links.size());
+		List<WebElement> l = driver.findElements(By.xpath("//a"));
+		System.out.println("Total no of URLS"+l.size());
+		HashSet<WebElement> s= new HashSet();
+		for(WebElement c:l)
+		{
+		System.out.println(c.getText());
+		s.add(c);
+		}
+		System.out.println("No. of unique links"+s.size());
+		for(WebElement d:s)
+		{
+		       System.out.println(d.getText());
+		       }
+		 
+		 
+		 
+		       }
+}
